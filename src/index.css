@@ -113,4 +113,10 @@ All colors MUST be HSL.
   .card-3d:hover {
     transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
   }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
 }

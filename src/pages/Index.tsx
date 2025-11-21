@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import GameCategory from "@/components/GameCategory";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import gameAction1 from "@/assets/game-action-1.jpg";
 import gameRacing1 from "@/assets/game-racing-1.jpg";
 import gameRpg1 from "@/assets/game-rpg-1.jpg";
@@ -60,14 +61,16 @@ const Index = () => {
       <Navigation />
       <Hero />
       
-      <div id="games" className="space-y-12 pb-16">
+      <main id="games" className="space-y-12 pb-16">
         <GameCategory title="Action Games" games={actionGames} />
         <GameCategory title="Racing Games" games={racingGames} />
         <GameCategory title="Sports Games" games={sportsGames} />
         <GameCategory title="Adventure Games" games={adventureGames} />
         <GameCategory title="RPG Games" games={rpgGames} />
         <GameCategory title="Fighting Games" games={fightingGames} />
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };
