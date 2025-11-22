@@ -43,30 +43,31 @@ const GameDetail = () => {
             </Button>
           </Link>
           
-          <div className="grid lg:grid-cols-2 gap-8 animate-slide-up">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 animate-slide-up">
             {/* Left Column - Cover & Actions */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <Card className="glass overflow-hidden border-border/50">
                 <img 
                   src={game.cover} 
-                  alt={game.title}
+                  alt={`${game.title} - PS2 game cover`}
                   className="w-full aspect-[4/5] object-cover"
                 />
               </Card>
               
               <Button 
                 size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xl py-8 glow-blue"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xl sm:text-2xl py-8 sm:py-10 glow-blue"
+                aria-label={`Download ${game.title}`}
               >
-                <Download className="w-6 h-6 mr-3" />
+                <Download className="w-6 h-6 sm:w-7 sm:h-7 mr-3" />
                 Download Game
               </Button>
             </div>
             
             {/* Right Column - Details */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <div>
-                <h1 className="text-5xl font-bold mb-4 text-glow">{game.title}</h1>
+                <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-glow leading-tight">{game.title}</h1>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
@@ -87,25 +88,25 @@ const GameDetail = () => {
               </div>
               
               {/* System Requirements */}
-              <Card className="glass p-6 border-border/50">
-                <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <Cpu className="w-6 h-6 text-primary" />
+              <Card className="glass p-4 sm:p-6 border-border/50">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 flex items-center gap-2">
+                  <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   System Requirements
                 </h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex justify-between items-center text-sm sm:text-base">
                     <span className="text-muted-foreground">CPU:</span>
-                    <span className="font-medium">{game.requirements.cpu}</span>
+                    <span className="font-medium text-right">{game.requirements.cpu}</span>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center text-sm sm:text-base">
                     <span className="text-muted-foreground">RAM:</span>
                     <span className="font-medium">{game.requirements.ram}</span>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center text-sm sm:text-base">
                     <span className="text-muted-foreground">GPU:</span>
-                    <span className="font-medium">{game.requirements.gpu}</span>
+                    <span className="font-medium text-right">{game.requirements.gpu}</span>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center text-sm sm:text-base">
                     <span className="text-muted-foreground">Storage:</span>
                     <span className="font-medium">{game.requirements.storage}</span>
                   </div>
@@ -113,14 +114,14 @@ const GameDetail = () => {
               </Card>
               
               {/* Controls */}
-              <Card className="glass p-6 border-border/50">
-                <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <MonitorPlay className="w-6 h-6 text-primary" />
+              <Card className="glass p-4 sm:p-6 border-border/50">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 flex items-center gap-2">
+                  <MonitorPlay className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   Controls
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {Object.entries(game.controls).map(([key, value]) => (
-                    <div key={key} className="flex justify-between items-center">
+                    <div key={key} className="flex justify-between items-center text-sm sm:text-base">
                       <span className="text-muted-foreground capitalize">{key}:</span>
                       <span className="font-medium">{value}</span>
                     </div>
@@ -129,15 +130,16 @@ const GameDetail = () => {
               </Card>
               
               {/* Screenshots */}
-              <Card className="glass p-6 border-border/50">
-                <h3 className="text-2xl font-bold mb-4">Screenshots</h3>
-                <div className="grid grid-cols-3 gap-4">
+              <Card className="glass p-4 sm:p-6 border-border/50">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Screenshots</h3>
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   {game.screenshots.map((screenshot, index) => (
                     <img 
                       key={index}
                       src={screenshot}
-                      alt={`Screenshot ${index + 1}`}
-                      className="w-full aspect-video object-cover rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
+                      alt={`${game.title} screenshot ${index + 1}`}
+                      className="w-full aspect-video object-cover rounded-md hover:scale-105 transition-transform duration-300 cursor-pointer border border-border/30"
+                      loading="lazy"
                     />
                   ))}
                 </div>
