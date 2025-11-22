@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import GameCategory from "@/components/GameCategory";
+import CategoryFilter from "@/components/CategoryFilter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import gameAction1 from "@/assets/game-action-1.jpg";
@@ -8,6 +9,12 @@ import gameRpg1 from "@/assets/game-rpg-1.jpg";
 import gameFighting1 from "@/assets/game-fighting-1.jpg";
 
 const Index = () => {
+  const handleCategoryClick = (categoryId: string) => {
+    const element = document.getElementById(categoryId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   const actionGames = [
     { id: "action-1", title: "Cyber Warriors: Neon Strike", cover: gameAction1, rating: 5, category: "Action" },
     { id: "action-2", title: "Shadow Operations", cover: gameAction1, rating: 4, category: "Action" },
@@ -60,14 +67,27 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
+      <CategoryFilter onCategoryClick={handleCategoryClick} />
       
-      <main id="games" className="space-y-12 pb-16">
-        <GameCategory title="Action Games" games={actionGames} />
-        <GameCategory title="Racing Games" games={racingGames} />
-        <GameCategory title="Sports Games" games={sportsGames} />
-        <GameCategory title="Adventure Games" games={adventureGames} />
-        <GameCategory title="RPG Games" games={rpgGames} />
-        <GameCategory title="Fighting Games" games={fightingGames} />
+      <main id="games" className="space-y-8 sm:space-y-12 pb-12 sm:pb-16">
+        <div id="action-games">
+          <GameCategory title="Action Games" games={actionGames} />
+        </div>
+        <div id="racing-games">
+          <GameCategory title="Racing Games" games={racingGames} />
+        </div>
+        <div id="sports-games">
+          <GameCategory title="Sports Games" games={sportsGames} />
+        </div>
+        <div id="adventure-games">
+          <GameCategory title="Adventure Games" games={adventureGames} />
+        </div>
+        <div id="rpg-games">
+          <GameCategory title="RPG Games" games={rpgGames} />
+        </div>
+        <div id="fighting-games">
+          <GameCategory title="Fighting Games" games={fightingGames} />
+        </div>
       </main>
 
       <Footer />

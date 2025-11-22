@@ -15,7 +15,7 @@ const GameCard = ({ id, title, cover, rating, category }: GameCardProps) => {
   return (
     <article className="group">
       <Card className="glass overflow-hidden group-hover:scale-[1.02] transition-all duration-500 card-3d border-primary/20 hover:border-primary/40 hover:glow-blue">
-        <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+        <div className="relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden bg-muted">
           <img 
             src={cover} 
             alt={`${title} - PS2 game cover`}
@@ -46,38 +46,38 @@ const GameCard = ({ id, title, cover, rating, category }: GameCardProps) => {
           </div>
         </div>
         
-        <div className="p-4 space-y-3">
+        <div className="p-5 sm:p-4 space-y-3 sm:space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs text-primary font-semibold uppercase tracking-wider">{category}</span>
+            <span className="text-sm sm:text-xs text-primary font-semibold uppercase tracking-wider">{category}</span>
             <div className="flex items-center gap-1" aria-label={`${rating} out of 5 stars`}>
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star 
                   key={i} 
-                  className={`w-3 h-3 transition-colors ${i < rating ? 'fill-primary text-primary' : 'text-muted'}`}
+                  className={`w-4 h-4 sm:w-3 sm:h-3 transition-colors ${i < rating ? 'fill-primary text-primary' : 'text-muted'}`}
                   aria-hidden="true"
                 />
               ))}
             </div>
           </div>
           
-          <h3 className="font-bold text-foreground line-clamp-2 min-h-[3rem] text-base leading-tight group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-foreground line-clamp-2 min-h-[3.5rem] sm:min-h-[3rem] text-lg sm:text-base leading-tight group-hover:text-primary transition-colors">
             {title}
           </h3>
           
-          <div className="flex gap-2 pt-2">
+          <div className="flex gap-2 sm:gap-2 pt-2">
             <Button 
               size="sm" 
-              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/50"
+              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/50 text-base sm:text-sm py-6 sm:py-2"
               aria-label={`Download ${title}`}
             >
-              <Download className="w-4 h-4 mr-2" />
+              <Download className="w-5 h-5 sm:w-4 sm:h-4 mr-2" />
               Download
             </Button>
             <Link to={`/game/${id}`} className="flex-1">
               <Button 
                 size="sm" 
                 variant="outline"
-                className="w-full border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all"
+                className="w-full border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all text-base sm:text-sm py-6 sm:py-2"
                 aria-label={`View ${title} details`}
               >
                 Details
