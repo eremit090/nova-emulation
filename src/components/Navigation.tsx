@@ -81,17 +81,17 @@ const Navigation = () => {
                 </div>
 
                 {/* Mobile Menu Items */}
-                <div className="flex-1 p-6 space-y-2">
+                <div className="flex-1 px-4 py-6 space-y-3">
                   {menuItems.map((item) => {
                     const Icon = item.icon;
                     return (
                       <button
                         key={item.id}
                         onClick={() => scrollToSection(item.id)}
-                        className="w-full flex items-center gap-4 px-4 py-4 rounded-lg bg-card/50 hover:bg-primary/10 border border-primary/20 transition-all touch-manipulation group"
+                        className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-card/50 hover:bg-primary/10 border border-primary/20 transition-all touch-manipulation group hover:shadow-lg hover:shadow-primary/20"
                       >
-                        <Icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                        <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">
+                        <Icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                        <span className="text-base font-medium text-foreground group-hover:text-primary transition-colors">
                           {item.label}
                         </span>
                       </button>
@@ -100,12 +100,12 @@ const Navigation = () => {
                 </div>
 
                 {/* Mobile Menu Footer */}
-                <div className="p-6 border-t border-primary/20">
+                <div className="p-4 border-t border-primary/20">
                   <Button 
                     onClick={() => scrollToSection('download')}
-                    className="w-full h-14 text-lg font-bold bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/50 transition-all touch-manipulation glow-blue"
+                    className="w-full h-12 text-base font-bold bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/50 transition-all touch-manipulation glow-blue"
                   >
-                    <Download className="w-6 h-6 mr-2" />
+                    <Download className="w-5 h-5 mr-2" />
                     Download Now
                   </Button>
                 </div>
